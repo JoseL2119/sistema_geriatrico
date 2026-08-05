@@ -354,6 +354,7 @@ a {
 .table-responsive {
     overflow-x: auto;
     padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table .btn-icon {
@@ -417,4 +418,67 @@ a {
 footer.app-footer {
     margin-top: 30px;
     background-color: var(--primary-900);
+}
+
+/* ---------------------------------------------------------
+   Ajustes para móvil
+--------------------------------------------------------- */
+
+@media (max-width: 576px) {
+
+    .navbar-app .navbar-brand img {
+        max-height: 40px;
+    }
+
+    .dashboard-header {
+        padding: 24px 18px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .stat-card,
+    .alert-card,
+    .card-app {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+    }
+
+    /* El botón de acción principal ocupa todo el ancho para ser más fácil de tocar */
+    .page-header .btn {
+        width: 100%;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-bar .filter-field {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+    }
+
+    /* Tablas más compactas para acortar el scroll horizontal */
+    .table {
+        font-size: 0.78rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 6px 4px;
+    }
+
+    .modal-body .row > [class*="col-"] {
+        margin-bottom: 0.5rem;
+    }
 }
