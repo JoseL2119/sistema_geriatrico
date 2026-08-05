@@ -1,6 +1,8 @@
+let residentesInfo = {};
+
 $(document).ready( function() {
     mostrarListado();
-    listadoCargosPendientes();
+    cargarResidentesYListado();
 
     // Ir al formulario desde el listado
     $(document).on("click", "#nuevo", function (e){
@@ -45,34 +47,31 @@ $(document).ready( function() {
     });
 
     $(document).on("click", ".contactar-whatsapp", function(e){
-        const id_residente = $(this).attr("value");
-        let monto = $(this).attr("data-deuda");
-        let cedula = "", nombres = "", apellidos = "", telefono = "";
+        const telefono = $(this).attr("data-tlf");
+        const monto = $(this).attr("data-deuda");
+        const cedula = $(this).attr("data-cedula");
+        const nombres = $(this).attr("data-nombres");
+        const apellidos = $(this).attr("data-apellidos");
 
-        obtenerDatosRepresentante(id_residente, function(info){
+        if(!telefono){
+            Swal.fire({
+                icon: "warning",
+                title: "Teléfono no disponible",
+                text: "Este representante no tiene un número registrado."
+            });
+            return;
+        }
 
-            if(!info){
-                Swal.fire({
-                    icon: "warning",
-                    title: "Teléfono no disponible",
-                    text: "Este representante no tiene un número registrado."
-                });
-                return;
-            } 
-            
-            const mensaje = encodeURIComponent(
-                "Hola, le escribimos del Hogar Clínica Madre Santa Teresa. " +
-                "Nos ponemos en contacto con usted para informarle que tiene una deuda pendiente por pagar de " + monto + "$ asociada al residente " +
-                info.nombres + " " + info.apellidos + ", de cédula " + info.cedula + ". Por favor, cancelarla lo antes posible. Gracias!"
-            );
+        const mensaje = encodeURIComponent(
+            "Hola, le escribimos del Hogar Clínica Madre Santa Teresa. " +
+            "Nos ponemos en contacto con usted para informarle que tiene una deuda pendiente por pagar de " + monto + "$ asociada al residente " +
+            nombres + " " + apellidos + ", de cédula " + cedula + ". Por favor, cancelarla lo antes posible. Gracias!"
+        );
 
-            window.open(
-                "https://wa.me/" + info.telefono + "?text=" + mensaje,
-                "_blank"
-            );
-            
-
-        });
+        window.open(
+            "https://wa.me/" + telefono + "?text=" + mensaje,
+            "_blank"
+        );
     });
 
     $(document).on("click", "#editar", function(e){
@@ -106,6 +105,31 @@ function formatearFecha(fechaISO) {
 }
 
 // Funciones de AJAX
+function cargarResidentesYListado(){
+    $.ajax({
+        type: "GET",
+        url: "/ajaxResidentes",
+        dataType: "json",
+        success: function(response){
+            residentesInfo = {};
+            response.forEach((r) => {
+                residentesInfo[r.id] = {
+                    telefono: r.telefono ? normalizarTelefono(r.telefono) : "",
+                    cedula: r.cedula,
+                    nombres: r.nombres,
+                    apellidos: r.apellidos
+                };
+            });
+            listadoCargosPendientes();
+        },
+        error: function (req, status, error){
+            const err = req.responseText;
+            console.log(err);
+            listadoCargosPendientes();
+        }
+    });
+}
+
 function listadoCargosPendientes(){
     $.ajax({
         type: "GET", 
@@ -120,6 +144,7 @@ function listadoCargosPendientes(){
                 totalMontos += Number(element.monto);
                 totalPagados += Number(element.total_pagado);
                 totalSaldo += Number(element.saldo);
+                const info = residentesInfo[element.id_residente] || {};
                 html += `
                 <tr class="text-center">
                     <td>${element.nombres} ${element.apellidos}</td>
@@ -128,7 +153,7 @@ function listadoCargosPendientes(){
                     <td>${element.total_pagado}</td>
                     <td>${element.saldo}</td>
                     <td colspan = "2">
-                        <a class="btn btn-success contactar-whatsapp" data-deuda="${element.saldo}" value="${element.id_residente}">Contactar</a>
+                        <a class="btn btn-success contactar-whatsapp" data-deuda="${element.saldo}" data-tlf="${info.telefono || ''}" data-cedula="${info.cedula || ''}" data-nombres="${info.nombres || ''}" data-apellidos="${info.apellidos || ''}" value="${element.id_residente}">Contactar</a>
                     </td>
                 </tr>
                 `;
@@ -217,40 +242,6 @@ function normalizarTelefono(telefono){
     }
 
     return telefono;
-}
-
-function obtenerDatosRepresentante(id, callback){
-    $.ajax({
-        type: "GET",
-        url: "/ajaxResidentes",
-        dataType: "json",
-        success: function (response){
-            const representante = response.find(
-                element => element.id == id
-            );
-
-            if(representante){
-
-                callback({
-                    telefono: normalizarTelefono(representante.telefono),
-                    cedula: representante.cedula,
-                    nombres: representante.nombres,
-                    apellidos: representante.apellidos
-                });
-
-            } else {
-
-                callback(null);
-
-            }
-        },
-        error: function (req, status, error){
-            var err = req.responseText;
-            console.log(err);
-            alert(err.Message);
-            callback(null);
-        }
-    });
 }
 
 function guardarCargosPendientes(params){
