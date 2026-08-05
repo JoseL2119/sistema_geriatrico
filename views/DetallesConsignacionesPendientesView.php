@@ -33,7 +33,7 @@
 
         <hr class="page-divider">
 
-        <div class="filter-bar">
+        <!-- <div class="filter-bar">
             <div class="filter-field">
                 <label for="fecha_inicio">Fecha Inicial:</label>
                 <input type="date" class="form-control form-control-sm" id="fecha_inicio">
@@ -47,7 +47,7 @@
 
         <button id="pdf-link" class="btn btn-pdf btn-app mb-3">
             <i class="fas fa-file-pdf me-2"></i>Generar PDF
-        </button>
+        </button> -->
 
         <div class="container-fluid px-0">
             <div class="table-responsive rounded-3 shadow-sm">

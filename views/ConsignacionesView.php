@@ -37,7 +37,7 @@
 
         <hr class="page-divider">
 
-        <div class="filter-bar">
+        <!-- <div class="filter-bar">
             <div class="filter-field">
                 <label for="filtro_fecha">Filtrar por fecha</label>
                 <input type="date" class="form-control form-control-sm" name="" id="filtro_fecha">
@@ -46,7 +46,7 @@
 
         <button id="pdf-link" class="btn btn-pdf btn-app mb-3">
             <i class="fas fa-file-pdf me-2"></i>Generar PDF
-        </button>
+        </button> -->
 
         <div class="container-fluid px-0">  <!-- Contenedor fluido sin padding horizontal -->
             <div class="table-responsive rounded-3 shadow-sm" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
