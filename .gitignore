@@ -1,5 +1,9 @@
 .env
 .env.local
 
+# Config local de Claude Code: registra comandos aprobados y puede
+# terminar guardando credenciales pegadas durante una sesión.
+.claude/
+
 Thumbs.db
 .DS_Store
