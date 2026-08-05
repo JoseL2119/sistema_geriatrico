@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(curl -s -o /tmp/resp.html -w \"%{http_code}\\\\n\" \"http://localhost/proyectoCVM/views/LandingPageView.php\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" \"http://localhost/proyectoCVM/assets/css/app.css\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" \"http://localhost/proyectoCVM/assets/js/ajaxResidentes.js\")",
+      "Bash(curl -s \"http://localhost/proyectoCVM/residentes\")",
+      "Read(//c/xampp/htdocs/**)",
+      "Read(//c/xampp/apache/conf/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"http://localhost/\")",
+      "Bash(curl -s \"http://localhost/proyectoCVM/info.php\")",
+      "Bash(curl -sI \"http://localhost/proyectoCVM/info.php\")",
+      "Bash(curl -sI \"http://localhost/\")",
+      "Bash(grep -i \"proyectocvm\" /c/Windows/System32/drivers/etc/hosts 2>/dev/null *)",
+      "Bash(curl -s \"http://proyectocvm.local/landing\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" \"http://proyectocvm.local/assets/css/app.css\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" \"http://proyectocvm.local/src/logo.PNG\")",
+      "Bash(curl -s \"http://proyectocvm.local/residentes\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" \"http://proyectocvm.local/assets/js/ajaxResidentes.js\")",
+      "Bash(php -v)"
+    ]
+  }
+}

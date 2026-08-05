@@ -1,0 +1,61 @@
+-- Table: public.equipos
+
+-- DROP TABLE IF EXISTS public.equipos;
+
+CREATE TABLE IF NOT EXISTS public.equipos
+(
+    id integer NOT NULL DEFAULT nextval('"Equipos_id_seq"'::regclass),
+    nombre character varying(30) COLLATE pg_catalog."default",
+    CONSTRAINT "Equipos_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.equipos
+    OWNER to postgres;
+
+
+
+
+-- Table: public.jornadas
+
+-- DROP TABLE IF EXISTS public.jornadas;
+
+CREATE TABLE IF NOT EXISTS public.jornadas
+(
+    id integer NOT NULL DEFAULT nextval('jornadas_id_seq'::regclass),
+    jornada integer,
+    fecha date,
+    CONSTRAINT jornadas_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.jornadas
+    OWNER to postgres;
+
+
+
+
+
+-- Table: public.partidos
+
+-- DROP TABLE IF EXISTS public.partidos;
+
+CREATE TABLE IF NOT EXISTS public.partidos
+(
+    id integer NOT NULL DEFAULT nextval('partidos_id_seq'::regclass),
+    jornada integer,
+    fecha date,
+    orden integer,
+    idlocal integer,
+    idvisitante integer,
+    goleslocal integer,
+    golesvisitante integer,
+    CONSTRAINT partidos_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.partidos
+    OWNER to postgres;

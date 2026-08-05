@@ -1,0 +1,17 @@
+{
+    "name": "lenovo-pc/php-quinielas",
+    "autoload": {
+        "psr-4": {
+            "PhpQuinielas\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "JoseL2119",
+            "email": "128648766+JoseL2119@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
+}

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transporte Línea Principal Pto Ordaz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        
+    <?php include "fragments/navbarPzo.php" ?>
+
+    <section id="lista">
+        <h5>Listado de Registros de Transporte Línea Principal en Puerto Ordaz</h5>
+        <hr />
+        <div>
+            <button type="button" class="btn btn-primary" id="nuevo">Nuevo Registro</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Cantidad Vagones</th>
+                    <th scope="col">Cantidad Gondolas</th>
+                    <th scope="col">Cantidad Tolvas</th>
+                    <th scope="col">Total (Tn)</th>
+                    <th scope="col">Cantidad Trenes P</th>
+                    <th scope="col">Cantidad Trenes E</th>
+                    <th scope="col">Cantidad Trenes A</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </section>
+
+    <section id="form" class="d-none">
+        <h5>Formulario Registro Transporte Linea Principal</h5>
+        <hr />
+        <form id="formulario">
+            <input type="hidden" id="id" />
+            <div class="mb-3">
+                <label for="cantidadVagones" class="form-label">Cantidad total de Vagones</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadVagones" 
+                    value=""
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="cantidadGondolas" class="form-label">Cantidad de Gondolas</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadGondolas" 
+                    value=""
+                    required
+                    oninput="calcular()"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="cantidadTolvas" class="form-label">Cantidad de Tolvas</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadTolvas" 
+                    value=""
+                    required
+                    oninput="calcular()"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="cantidadTotal" class="form-label">Cantidad Total de carga (Tn)</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadTotal" 
+                    value=""
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="cantidadPreparados" class="form-label">Cantidad total de trenes preparados</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadPreparados" 
+                    value=""
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="cantidadExtra" class="form-label">Cantidad total de trenes extra</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadExtra" 
+                    value=""
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="cantidadAnulado" class="form-label">Cantidad total de trenes anulados</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadAnulado" 
+                    value=""
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input 
+                    type="date" 
+                    class="form-control" 
+                    id="fecha" 
+                    value=""
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="comentario" class="form-label">Comentario</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="comentario" 
+                    value=""
+                    required
+                />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-danger" id="volver">Volver</button>
+            </div>
+        </form>
+    </section>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../assets/js/ajaxTransporteLineaPrincipal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+
+    <script type="text/javascript">
+        function calcular(){
+            try{
+                var a = parseInt(document.getElementById("cantidadGondolas").value) || 0,
+                b = parseInt(document.getElementById("cantidadTolvas").value) || 0
+
+                document.getElementById("cantidadTotal").value = (a*89) + (b*90);
+            } catch(e){}
+        }
+
+    </script>
+
+  </body>
+</html>
