@@ -42,20 +42,24 @@ class ResidentesController{
                 $data = array();
                 parse_str(file_get_contents('php://input'), $data);
 
-                if($data['tipo_registro'] == 'completo'){
+                $tipoRegistro = $data['tipo_registro'] ?? null;
+                unset($data['tipo_registro']);
+
+                if($tipoRegistro == 'completo'){
                     $response = Residentes::registrarCompleto($data);
                 }
                 else{
                     $response = Residentes::insert($data);
                 }
 
-                
+
                 echo json_encode($response);
                 break;
-            
+
             case 'PUT':
                 $data = array();
                 parse_str(file_get_contents('php://input'), $data);
+                unset($data['tipo_registro']);
                 $response = Residentes::update($id, $data);
                 echo json_encode($response);
                 break;
