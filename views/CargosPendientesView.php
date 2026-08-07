@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cargos Pendientes</title>
+    <title>Cargos pendientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -27,7 +27,7 @@
         <div class="page-header">
             <h5>
                 <i class="fas fa-users page-icon"></i>
-                Registros de Cargos pendientes por pagar
+                Cargos pendientes por pagar
             </h5>
         </div>
 
@@ -57,7 +57,7 @@
                             <th style="width: 16%; min-width: 100px;">Residente</th>
                             <th style="width: 16%; min-width: 100px;">Periodo</th>
                             <th style="width: 16%; min-width: 100px;">Monto (USD)</th>
-                            <th style="width: 16%; min-width: 100px;">Total Pagado (USD)</th>
+                            <th style="width: 16%; min-width: 100px;">Total tagado (USD)</th>
                             <th style="width: 16%; min-width: 100px;">Saldo (USD)</th>
                             <th style="width: 16%; min-width: 100px;">Opciones</th>
                         </tr>

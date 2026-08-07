@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5>
                 <i class="fas fa-users page-icon"></i>
-                Listado de Parentescos
+                Listado de parentescos
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Parentesco
+                <i class="fas fa-plus-circle me-2"></i>Nuevo parentesco
             </button>
         </div>
 
@@ -57,7 +57,7 @@
 
 
     <section id="form" class="d-none">
-        <h5>Formulario de Registro de Parentesco</h5>
+        <h5>Formulario de registro de parentesco</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Consignaciones Pendientes</title>
+    <title>Consignaciones pendientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -27,7 +27,7 @@
         <div class="page-header">
             <h5>
                 <i class="fas fa-users page-icon"></i>
-                Registros de Consignaciones pendientes por entregar
+                Consignaciones pendientes por entregar
             </h5>
         </div>
 
@@ -55,9 +55,9 @@
                     <thead class="text-center">
                         <tr>
                             <th style="width: 20%; min-width: 100px;">Residente</th>
-                            <th style="width: 20%; min-width: 100px;">Requerimientos Pendientes</th>
-                            <th style="width: 20%; min-width: 100px;">Requerimientos Parciales</th>
-                            <th style="width: 20%; min-width: 100px;">Artículos Pendientes</th>
+                            <th style="width: 20%; min-width: 100px;">Requerimientos pendientes</th>
+                            <th style="width: 20%; min-width: 100px;">Requerimientos parciales</th>
+                            <th style="width: 20%; min-width: 100px;">Artículos pendientes</th>
                             <th style="width: 20%; min-width: 100px;">Opciones</th>
                         </tr>
                     </thead>
@@ -76,7 +76,7 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Ficha de Consignaciones Pendientes del residente
+                            Ficha de consignaciones pendientes del residente
                         </h5>
 
                         <button type="button" 
@@ -90,7 +90,7 @@
 
                         <!-- DATOS PERSONALES -->
                         <h5 class="section-title border-bottom pb-2">
-                            Datos personales del Residente
+                            Datos personales del residente
                         </h5>
 
                         <div class="row mb-3">
@@ -101,7 +101,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Nombres y Apellidos:</strong>
+                                <strong>Nombres y apellidos:</strong>
                                 <p id="ficha_nombres">-</p>
                             </div>
 
@@ -110,7 +110,7 @@
 
                         <!-- INGRESO -->
                         <h5 class="section-title border-bottom pb-2">
-                            Listado de Artículos Pendientes por Consignar
+                            Listado de artículos pendientes por consignar
                         </h5>
 
                         <table class="table table-bordered m-0" style="font-size: 0.88rem; width: 100%; min-width: 100%;">
@@ -118,11 +118,11 @@
                                 <!-- Fila de encabezado principal -->
                                 <tr class="text-center">
                                     <th colspan="3">Artículo</th>
-                                    <th colspan="2">Cantidad Requerida</th>
-                                    <th colspan="2">Cantidad Entregada</th>
-                                    <th colspan="2">Cantidad Pendiente</th>
-                                    <th colspan="2">Periodo Actual</th>
-                                    <th colspan="2">Periodo Siguiente</th>
+                                    <th colspan="2">Cantidad requerida</th>
+                                    <th colspan="2">Cantidad entregada</th>
+                                    <th colspan="2">Cantidad pendiente</th>
+                                    <th colspan="2">Periodo actual</th>
+                                    <th colspan="2">Periodo siguiente de entrega</th>
                                     <th colspan="2">Estado</th>
                                 </tr>
                             </thead>
@@ -143,7 +143,7 @@
                             data-nombres=""
                             data-apellidos="">
                             <i class="fab fa-whatsapp"></i>
-                            Contactar Representante
+                            Contactar representante
                         </button>
 
                         <button type="button" 

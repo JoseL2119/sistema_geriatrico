@@ -164,7 +164,7 @@ function obtenerFichaRepresentante(id){
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: "No se pudo obtener la información del Representante."
+                text: "No se pudo obtener la información del representante."
             });
         }
     });

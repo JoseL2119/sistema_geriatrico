@@ -47,7 +47,7 @@ class DetallesConsignacionesPendientes {
 
     static public function getById($id){
         $table = self::$tableName;
-        $sql = "SELECT * FROM $table WHERE id = :id";
+        $sql = "SELECT * FROM $table WHERE id_residente = :id";
         $stmt = ConnectionFerro::getConnection()->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_STR);
 

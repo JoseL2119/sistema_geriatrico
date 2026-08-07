@@ -110,7 +110,7 @@ function obtenerResidente(id){
         success: function (response){
             $("#residente").empty();
             valor='';
-            html = '<option selected>Elegir Residente</option>';
+            html = '<option selected>Elegir residente</option>';
             if(id==0){
                 $("#residente").append(html);
 

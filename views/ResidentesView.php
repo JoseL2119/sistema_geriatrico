@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5 id="titulo-seccion">
                 <i class="fas fa-clipboard-list page-icon"></i>
-                Listado de Residentes
+                Listado de residentes
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Residente
+                <i class="fas fa-plus-circle me-2"></i>Nuevo residente
             </button>
         </div>
 
@@ -54,10 +54,10 @@
                     <thead>
                         <!-- Fila de encabezado principal -->
                         <tr class="text-center">
-                            <th colspan="3">Cedula</th>
-                            <th colspan="3">Nombres y Apellidos</th>
-                            <th colspan="2">Fecha Nacimiento</th>  
-                            <th colspan="2">Fecha Ingreso</th>
+                            <th colspan="3">Cédula</th>
+                            <th colspan="3">Nombres y apellidos</th>
+                            <th colspan="2">Fecha nacimiento</th>  
+                            <th colspan="2">Fecha ingreso</th>
                             <th colspan="2">Status</th>
                             <th colspan="2">Opciones</th>
                         </tr>
@@ -71,7 +71,7 @@
     </section>
 
     <section id="form" class="d-none">
-        <h5>Formulario para registrar a un nuevo Residente</h5>
+        <h5>Formulario para registrar a un nuevo residente</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />
@@ -110,7 +110,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+                <label for="fecha" class="form-label">Fecha de nacimiento</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -121,7 +121,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha_ingreso" class="form-label">Fecha de Ingreso</label>
+                <label for="fecha_ingreso" class="form-label">Fecha de ingreso</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -132,7 +132,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha_egreso" class="form-label">Fecha de Egreso</label>
+                <label for="fecha_egreso" class="form-label">Fecha de egreso</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -173,7 +173,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="ivss" class="form-label">¿Posee Convenio con el IVSS?</label>
+                <label for="ivss" class="form-label">¿Posee convenio con el IVSS?</label>
                 <select class="form-select" id="ivss">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -182,7 +182,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="pensionado" class="form-label">¿Es Pensionado?</label>
+                <label for="pensionado" class="form-label">¿Es pensionado?</label>
                 <select class="form-select" id="pensionado">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -191,7 +191,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="privado" class="form-label">¿Es Caso Privado?</label>
+                <label for="privado" class="form-label">¿Es caso privado?</label>
                 <select class="form-select" id="privado">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -200,7 +200,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="contencion_f" class="form-label">¿Tiene Contención Familiar?</label>
+                <label for="contencion_f" class="form-label">¿Tiene contención familiar?</label>
                 <select class="form-select" id="contencion_f">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -209,7 +209,7 @@
             </div>
             
             <div class="mb-3">
-                <label for="vulnerabilidad_f" class="form-label">¿Tiene Vulnerabilidad Familiar?</label>
+                <label for="vulnerabilidad_f" class="form-label">¿Tiene vulnerabilidad familiar?</label>
                 <select class="form-select" id="vulnerabilidad_f">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -218,7 +218,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="apadrinazgo" class="form-label">¿Tiene Apadrinazgo?</label>
+                <label for="apadrinazgo" class="form-label">¿Tiene apadrinazgo?</label>
                 <select class="form-select" id="apadrinazgo">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -227,7 +227,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="psiquiatrico" class="form-label">¿Es Paciente Psiquiátrico?</label>
+                <label for="psiquiatrico" class="form-label">¿Es paciente psiquiátrico?</label>
                 <select class="form-select" id="psiquiatrico">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -246,14 +246,14 @@
             </div>
 
             <div class="mb-3">
-                <label for="condicion" class="form-label">Condición de Movilidad</label>
+                <label for="condicion" class="form-label">Condición de movilidad</label>
                 <select class="form-select" id="condicion">
                     <option selected>Seleccionar opción</option>
                 </select>
             </div>
 
             <div class="mb-3">
-                <label for="control_esfinteres" class="form-label">¿Controla sus Esfínteres?</label>
+                <label for="control_esfinteres" class="form-label">¿Controla sus esfínteres?</label>
                 <select class="form-select" id="control_esfinteres">
                     <option selected>Seleccionar opción</option>
                     <option value="1">Sí</option>
@@ -262,17 +262,23 @@
             </div>
 
             <div class="mb-3">
-                <label for="centro_medico" class="form-label">Centro Médico de Evaluación</label>
-                <select class="form-select" id="centro_medico">
-                    <option selected>Seleccionar Centro</option>
-                </select>
+                <label for="centro_medico" class="form-label">Centro médico de evaluación</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="centro_medico" 
+                    value=""
+                />
             </div>
 
             <div class="mb-3">
-                <label for="medico" class="form-label">Médico Tratante</label>
-                <select class="form-select" id="medico">
-                    <option selected>Seleccionar Médico</option>
-                </select>
+                <label for="medico" class="form-label">Médico tratante</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="medico" 
+                    value=""
+                />
             </div>
 
             <div class="mb-3">
@@ -281,6 +287,31 @@
                     type="text" 
                     class="form-control" 
                     id="observaciones" 
+                    value=""
+                />
+            </div>
+
+            <hr id="divisor_tarifa"/>
+
+            <h5 id="titulo_tarifa">Tarifa</h5>
+
+            <div class="mb-3">
+                <label for="tarifa" id="label_tarifa" class="form-label">Tarifa a cobrar (USD)</label>
+                <input 
+                    type="number" 
+                    step="0.01"
+                    class="form-control" 
+                    id="tarifa" 
+                    value=""
+                />
+            </div>
+
+            <div class="mb-3">
+                <label for="observaciones_tarifa" id="label_observaciones_tarifa" class="form-label">Observaciones</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="observaciones_tarifa" 
                     value=""
                 />
             </div>
@@ -294,14 +325,17 @@
                     Parentesco
                 </label>
 
-                <select class="form-select" id="parentesco">
-                    <option selected>Seleccionar Parentesco</option>
-                </select>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="parentesco" 
+                    value=""
+                />
             </div>
 
             <div class="mb-3">
 
-                <label class="form-label">
+                <label class="form-label" id="label_selector">
                     ¿El representante ya está registrado?
                 </label>
 
@@ -318,6 +352,7 @@
                     <label 
                         class="form-check-label"
                         for="representante_existente"
+                        id="label_existente"
                     >
                         Seleccionar representante existente
                     </label>
@@ -338,6 +373,7 @@
                     <label 
                         class="form-check-label"
                         for="representante_nuevo"
+                        id="label_nuevo"
                     >
                         Registrar nuevo representante
                     </label>
@@ -349,11 +385,11 @@
 
                     <div class="mb-3">
                         <label for="representante" class="form-label">
-                            Representante Responsable
+                            Representante responsable
                         </label>
 
                         <select class="form-select" id="representante">
-                            <option selected>Seleccionar Representante</option>
+                            <option selected>Seleccionar representante</option>
                         </select>
                     </div>
 
@@ -418,7 +454,7 @@
 
                     <div class="mb-3">
                         <label for="fecha_representante" class="form-label">
-                            Fecha de Nacimiento
+                            Fecha de nacimiento
                         </label>
 
                         <input 
@@ -444,7 +480,7 @@
 
                     <div class="mb-3">
                         <label for="fechaPago_representante" class="form-label">
-                            Fecha de Pago (día)
+                            Fecha de pago (día)
                         </label>
 
                         <input 
@@ -457,7 +493,7 @@
 
                     <div class="mb-3">
                         <label for="familiar_alt_representante" class="form-label">
-                            Nombre de Familiar alternativo (opcional)
+                            Nombre de familiar alternativo (opcional)
                         </label>
 
                         <input 
@@ -470,7 +506,7 @@
 
                     <div class="mb-3">
                         <label for="telefono_alt_representante" class="form-label">
-                            Teléfono de Familiar alternativo (opcional)
+                            Teléfono de familiar alternativo (opcional)
                         </label>
 
                         <input 
@@ -643,7 +679,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Paciente Psiquiátrico:</strong>
+                                <strong>Paciente psiquiátrico:</strong>
                                 <p id="ficha_psiquiatrico">-</p>
                             </div>
 
@@ -672,7 +708,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Caso Privado:</strong>
+                                <strong>Caso privado:</strong>
                                 <p id="ficha_privado">-</p>
                             </div>
 
@@ -681,12 +717,12 @@
                         <div class="row mb-3">
 
                             <div class="col-md-4">
-                                <strong>Contención Familiar:</strong>
+                                <strong>Contención familiar:</strong>
                                 <p id="ficha_contencion">-</p>
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Vulnerabilidad Familiar:</strong>
+                                <strong>Vulnerabilidad familiar:</strong>
                                 <p id="ficha_vulnerabilidad">-</p>
                             </div>
 

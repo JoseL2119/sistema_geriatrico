@@ -60,6 +60,8 @@ class ResidentesController{
                 $data = array();
                 parse_str(file_get_contents('php://input'), $data);
                 unset($data['tipo_registro']);
+                unset($data['monto']);
+                unset($data['observaciones_tarifa']);
                 $response = Residentes::update($id, $data);
                 echo json_encode($response);
                 break;

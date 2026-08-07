@@ -140,7 +140,7 @@ function listadoRequerimientos(){
                     <td colspan = "1">${element.id_residente}</td>
                     <td colspan = "3">${element.nombres_residente} ${element.apellidos_residente}</td>
                     <td colspan = "3">
-                        <a class="btn btn-info" id="verFicha" value="${element.id_residente}">Ver Requerimientos</a>
+                        <a class="btn btn-info" id="verFicha" value="${element.id_residente}">Ver requerimientos</a>
                         <a class="btn btn-success" id="editar" value="${element.id_residente}">Editar</a>
                         <a class="btn btn-danger" id="eliminar" value="${element.id_residente}">Eliminar</a>
                     </td>
@@ -181,7 +181,7 @@ function obtenerFichaRequerimientos(id){
                     <td colspan = "2">${element.cantidad}</td>
                     <td colspan = "2">${element.frecuencia_meses}</td>
                     <td colspan = "2">${formatearFecha(element.fecha_inicio)}</td>
-                    <td colspan = "2">${element.fecha_fin ? formatearFecha(element.fecha_fin) : "Requerimiento Activo"}</td>
+                    <td colspan = "2">${element.fecha_fin ? formatearFecha(element.fecha_fin) : "Requerimiento activo"}</td>
                     <td colspan = "2">${element.observaciones ? element.observaciones : "Sin observaciones"}</td>
                 </tr>
                 `
@@ -215,7 +215,7 @@ function obtenerResidente(id){
         success: function (response){
             $("#residente").empty();
             valor='';
-            html = '<option selected>Elegir Residente</option>';
+            html = '<option selected>Elegir residente</option>';
             if(id==0){
                 $("#residente").append(html);
 
@@ -247,7 +247,7 @@ function obtenerResidente(id){
     });
 }
 
-function obtenerListaArticulos(id, requerimientos = []){
+function obtenerListaArticulosEditar(id, requerimientos = []){
 
     $.ajax({
         type: "GET",
@@ -255,6 +255,9 @@ function obtenerListaArticulos(id, requerimientos = []){
         dataType: "json",
 
         success: function(response){
+
+            console.log(id);
+            console.log(requerimientos);
 
             $("#tbodyArticulos").empty();
 
@@ -402,6 +405,56 @@ function obtenerListaArticulos(id, requerimientos = []){
                 $("#tbodyArticulos").html(html);
                 return;
             }
+
+            $("#tbodyArticulos").html(html);
+
+        },
+
+        error: function(req, status, error){
+
+            const err = req.responseText;
+
+            console.log(err);
+
+        }
+
+    });
+
+}
+
+function obtenerListaArticulos(id){
+
+    $.ajax({
+        type: "GET",
+        url: "/ajaxArticulos",
+        dataType: "json",
+
+        success: function(response){
+
+            $("#tbodyArticulos").empty();
+
+            let valor = 0;
+            let html = '';
+
+            // -----------------------------------------
+            // SIN RESIDENTE SELECCIONADO
+            // -----------------------------------------
+
+            if(id == 0){
+
+                html = `
+                    <tr class="text-center">
+                        <td colspan="15">
+                            Selecciona un residente para cargar sus artículos
+                        </td>
+                    </tr>
+                `;
+
+                $("#tbodyArticulos").html(html);
+
+                return;
+            }
+
 
             // -----------------------------------------
             // ARTICULOS DEL RESIDENTE
@@ -604,7 +657,7 @@ function obtenerRequerimientos(id){
             // CARGAR CARGOS
             // -----------------------------------------
 
-            obtenerListaArticulos(
+            obtenerListaArticulosEditar(
                 residente,
                 requerimientos
             );

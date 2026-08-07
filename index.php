@@ -247,13 +247,18 @@ if(array_key_exists($baseURI, $routes)){
             ConsignacionesPendientesController::procesar();
             break;
 
-        case 'DetallesConsignacionesPendientes':
+        case 'detallesConsignacionesPendientes':
             include './views/DetallesConsignacionesPendientesView.php';
             break;
 
         case 'ajaxDetallesConsignacionesPendientes':
             require $routes[$baseURI];
-            DetallesConsignacionesPendientesController::procesar();
+
+            if(count($uriParts) > 1 && is_numeric($uriParts[1])){
+                $_GET['id'] = $uriParts[1];
+            }
+
+            DetallesConsignacionesPendientesController::procesar($queryParams);
             break;
 
         case 'operadores':

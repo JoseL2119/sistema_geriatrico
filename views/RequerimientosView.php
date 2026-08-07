@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5 id="titulo-seccion">
                 <i class="fas fa-clipboard-list page-icon"></i>
-                Requerimientos de artículos por Residente
+                Requerimientos de artículos por residente
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Registrar Nuevo Requerimiento
+                <i class="fas fa-plus-circle me-2"></i>Registrar nuevo requerimiento
             </button>
         </div>
 
@@ -77,7 +77,7 @@
                 <label for="residente" class="form-label">Residente</label>
 
                 <select class="form-select" id="residente">
-                    <option selected>Seleccionar Residente</option>
+                    <option selected>Seleccionar residente</option>
                 </select>
             </div>
 
@@ -89,8 +89,8 @@
                         <th colspan="3">Artículo</th>
                         <th colspan="2">Cantidad</th>  
                         <th colspan="2">Frecuencia (meses)</th>  
-                        <th colspan="2">Fecha Inicio</th>
-                        <th colspan="2">Fecha Fin</th>
+                        <th colspan="2">Fecha inicio</th>
+                        <th colspan="2">Fecha fin</th>
                         <th colspan="2">Observaciones</th>
                         <th colspan="2">Acción</th>
                     </tr>
@@ -116,7 +116,7 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Ficha de Requerimientos del residente
+                            Ficha de requerimientos del residente
                         </h5>
 
                         <button type="button" 
@@ -141,7 +141,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Nombres y Apellidos:</strong>
+                                <strong>Nombres y apellidos:</strong>
                                 <p id="ficha_nombres">-</p>
                             </div>
 
@@ -150,7 +150,7 @@
 
                         <!-- INGRESO -->
                         <h5 class="section-title border-bottom pb-2">
-                            Listado de Artículos
+                            Listado de artículos
                         </h5>
 
                         <table class="table table-bordered m-0" style="font-size: 0.88rem; width: 100%; min-width: 100%;">

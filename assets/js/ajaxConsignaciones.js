@@ -81,7 +81,7 @@ $(document).ready( function() {
         }
 
         obtenerArticulosSegunResidente(idResidente);
-        obtenerRepresentanteSegunResidente(idResidente);
+        obtenerRepresentanteSegunResidente(idRepresentante);
 
     });
 
@@ -144,7 +144,7 @@ function listadoConsignaciones(){
                     <td colspan = "3">${element.nombres_representante} ${element.apellidos_representante}</td>
                     <td colspan = "3">${element.observaciones ? element.observaciones : "Sin observaciones"} </td>
                     <td colspan = "3">
-                        <a class="btn btn-info" id="verFicha" value="${element.id}">Ver Consignación</a>
+                        <a class="btn btn-info" id="verFicha" value="${element.id}">Ver consignación</a>
                         <a class="btn btn-success" id="editar" value="${element.id}">Editar</a>
                         <a class="btn btn-danger" id="eliminar" value="${element.id}">Eliminar</a>
                     </td>
@@ -220,7 +220,7 @@ function obtenerResidente(id){
         success: function (response){
             $("#residente").empty();
             valor='';
-            html = '<option selected>Elegir Residente</option>';
+            html = '<option selected>Elegir residente</option>';
             if(id==0){
                 $("#residente").append(html);
 
@@ -260,7 +260,7 @@ function obtenerRepresentante(id){
         success: function (response){
             $("#representante").empty();
             valor='';
-            html = '<option selected>Elegir Representante</option>';
+            html = '<option selected>Elegir representante</option>';
             if(id==0){
                 $("#representante").append(html);
 
@@ -478,7 +478,7 @@ function obtenerRepresentanteSegunResidente(id){
         success: function (response){
             $("#representante").empty();
             valor='';
-            html = '<option selected>Elegir Representante</option>';
+            html = '<option selected>Elegir representante</option>';
             if(id==0){
                 $("#representante").append(html);
 

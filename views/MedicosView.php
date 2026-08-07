@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5>
                 <i class="fas fa-users page-icon"></i>
-                Listado de Médicos
+                Listado de médicos
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Médico
+                <i class="fas fa-plus-circle me-2"></i>Nuevo médico
             </button>
         </div>
 
@@ -57,7 +57,7 @@
 
 
     <section id="form" class="d-none">
-        <h5>Formulario de Registro de Médico</h5>
+        <h5>Formulario de registro de médico</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />

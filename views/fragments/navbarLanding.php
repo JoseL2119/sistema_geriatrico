@@ -14,12 +14,12 @@
                         Residentes
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="residentesDropdown">
-                        <li><a class="dropdown-item" href="/residentes">Residentes</a></li>
-                        <li><a class="dropdown-item" href="/tarifas">Administrar Tarifas</a></li>
-                        <li><a class="dropdown-item" href="/status">Status</a></li>
-                        <li><a class="dropdown-item" href="/movilidad">Movilidad</a></li>
-                        <li><a class="dropdown-item" href="/centrosMedicos">Centros Médicos de Evaluación</a></li>
-                        <li><a class="dropdown-item" href="/medicos">Médicos</a></li>
+                        <li><a class="dropdown-item" href="/residentes">Administrar residentes</a></li>
+                        <li><a class="dropdown-item" href="/tarifas">Administrar tarifas</a></li>
+                        <li><a class="dropdown-item" href="/status">Administrar status</a></li>
+                        <li><a class="dropdown-item" href="/movilidad">Administrar niveles de movilidad</a></li>
+                        <!-- <li><a class="dropdown-item" href="/centrosMedicos">Centros Médicos de Evaluación</a></li>
+                        <li><a class="dropdown-item" href="/medicos">Médicos</a></li> -->
                     </ul>
                 </div>
 
@@ -29,8 +29,8 @@
                         Representantes
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="representantesDropdown">
-                        <li><a class="dropdown-item" href="/representantes">Representantes</a></li>
-                        <li><a class="dropdown-item" href="/parentesco">Parentesco</a></li>
+                        <li><a class="dropdown-item" href="/representantes">Administrar representantes</a></li>
+                        <!-- <li><a class="dropdown-item" href="/parentesco">Parentesco</a></li> -->
                     </ul>
                 </div>
 
@@ -40,10 +40,10 @@
                         Finanzas
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pagosDropdown">
-                        <li><a class="dropdown-item" href="/pagos">Registrar Pago</a></li>
-                        <li><a class="dropdown-item" href="/cargos">Cargos</a></li>
-                        <li><a class="dropdown-item" href="/cargosPendientes">Cargos por Pagar</a></li>
-                        <li><a class="dropdown-item" href="/metodoPago">Administrar Métodos de pago</a></li>
+                        <li><a class="dropdown-item" href="/cargosPendientes">Cargos por pagar</a></li>
+                        <li><a class="dropdown-item" href="/pagos">Registrar pago</a></li>
+                        <li><a class="dropdown-item" href="/cargos">Generar Cargos</a></li>
+                        <li><a class="dropdown-item" href="/metodoPago">Administrar métodos de pago</a></li>
                     </ul>
                 </div>
 
@@ -53,10 +53,10 @@
                         Consignaciones
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="consignacionesDropdown">
-                        <li><a class="dropdown-item" href="/consignacionesPendientes">Consignaciones Pendientes</a></li>
-                        <li><a class="dropdown-item" href="/consignaciones">Registrar Consignación</a></li>
-                        <li><a class="dropdown-item" href="/requerimientos">Requerimientos por Residente</a></li>
-                        <li><a class="dropdown-item" href="/articulos">Lista de Artículos</a></li>
+                        <li><a class="dropdown-item" href="/consignacionesPendientes">Consignaciones pendientes</a></li>
+                        <li><a class="dropdown-item" href="/consignaciones">Registrar consignación</a></li>
+                        <li><a class="dropdown-item" href="/requerimientos">Requerimientos por residente</a></li>
+                        <li><a class="dropdown-item" href="/articulos">Lista de artículos</a></li>
                     </ul>
                 </div>
             </div>

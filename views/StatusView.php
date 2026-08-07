@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Status Residentes</title>
+    <title>Status residentes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5>
                 <i class="fas fa-users page-icon"></i>
-                Listado de opciones de Status de los Residentes
+                Listado de opciones de status de los residentes
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Status
+                <i class="fas fa-plus-circle me-2"></i>Nuevo status
             </button>
         </div>
 
@@ -57,7 +57,7 @@
 
 
     <section id="form" class="d-none">
-        <h5>Formulario de Registro de Status</h5>
+        <h5>Formulario de registro de status</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />

@@ -8,9 +8,6 @@ $(document).ready( function() {
         obtenerRepresentante(0);
         obtenerStatus(0);
         obtenerMovilidad(0);
-        obtenerCentro(0);
-        obtenerMedico(0);
-        obtenerParentesco(0);
         mostrarFormulario();
         limpiarFormulario();
     });
@@ -99,6 +96,8 @@ $(document).ready( function() {
         const observaciones = $("#observaciones").val();
         const representante = $("#representante").val();
         const parentesco = $("#parentesco").val();
+        const tarifa = $("#tarifa").val();
+        const observaciones_tarifa = $("#observaciones_tarifa").val();
         
         const info = {
             tipo_registro: tipo_registro,
@@ -124,8 +123,9 @@ $(document).ready( function() {
             centro_medico_e: centro_medico,
             medico_tratante: medico,
             observaciones: observaciones,
-            //id_representante: representante,
-            parentesco: parentesco
+            parentesco: parentesco,
+            monto: tarifa,
+            observaciones_tarifa: observaciones_tarifa
         }
 
         if(tipo_registro === "parcial"){
@@ -165,7 +165,7 @@ $(document).ready( function() {
     $(document).on("click", "#editar", function(e){
         const id = $(this).attr("value");
         obtenerResidente(id);
-        mostrarFormulario();
+        mostrarFormularioEditar();
     });
 
     $(document).on("click", "#eliminar", function(e){
@@ -314,8 +314,8 @@ function obtenerFichaResidente(id){
 
             // Datos médicos
             $("#ficha_condicion_mov").text(residente.c_movilidad);
-            $("#ficha_centro_medico").text(residente.centro);
-            $("#ficha_medico").text(residente.medico);
+            $("#ficha_centro_medico").text(residente.centro_medico_e);
+            $("#ficha_medico").text(residente.medico_tratante);
 
             if(residente.psiquiatrico == 0){
                 $("#ficha_psiquiatrico").text("No");
@@ -513,11 +513,11 @@ function obtenerResidente(id){
             $("#diagnostico").val(response.diagnostico);
             $("#condicion").val(obtenerMovilidad(response.condicion_mov));
             $("#control_esfinteres").val(response.control_esfinteres);
-            $("#centro_medico").val(obtenerCentro(response.centro_medico_e));
-            $("#medico").val(obtenerMedico(response.medico_tratante));
+            $("#centro_medico").val(response.centro_medico_e);
+            $("#medico").val(response.medico_tratante);
             $("#observaciones").val(response.observaciones);
             $("#representante").val(obtenerRepresentante(response.id_representante));
-            $("#parentesco").val(obtenerParentesco(response.id_parentesco));
+            $("#parentesco").val(response.parentesco);
         },
         error: function (req, status, error){
             const err = req.responseText;
@@ -534,7 +534,7 @@ function obtenerRepresentante(id){
         success: function (response){
             $("#representante").empty();
             valor='';
-            html = '<option selected>Elegir Representante</option>';
+            html = '<option selected>Elegir representante</option>';
             if(id==0){
                 $("#representante").append(html);
 
@@ -606,86 +606,6 @@ function obtenerMovilidad(id){
     });
 }
 
-function obtenerCentro(id){
-    $.ajax({
-        type: "GET",
-        url: "/ajaxCentrosMedicos",
-        dataType: "json",
-        success: function (response){
-            $("#centro_medico").empty();
-            valor='';
-            html = '<option selected>Seleccionar Centro</option>';
-            if(id==0){
-                $("#centro_medico").append(html);
-
-                response.forEach((element) => {
-                    html = '<option value="' + element.id + '">' + element.nombre + '</option>';
-                    $('#centro_medico').append(html);
-                });
-            } 
-            
-            if(id > 0){
-                response.forEach((element) => {
-                    if(element.id == id){
-                        html = '<option selected value="' + element.id + '">' + element.nombre + '</option>';
-                        $('#centro_medico').append(html);
-                        true;
-                    } 
-                    else{
-                        html = '<option value="' + element.id + '">' + element.nombre + '</option>';
-                        $('#centro_medico').append(html);
-                    }
-                });
-            } 
-        },
-        error: function (req, status, error){
-            var err = req.responseText;
-            console.log(err);
-            alert(err.Message);
-        }
-    });
-}
-
-function obtenerMedico(id){
-    $.ajax({
-        type: "GET",
-        url: "/ajaxMedicos",
-        dataType: "json",
-        success: function (response){
-            $("#medico").empty();
-            valor='';
-            html = '<option selected>Seleccionar Médico</option>';
-            if(id==0){
-                $("#medico").append(html);
-
-                response.forEach((element) => {
-                    html = '<option value="' + element.id + '">' + element.nombre + '</option>';
-                    $('#medico').append(html);
-                });
-            } 
-            
-            if(id > 0){
-                response.forEach((element) => {
-                    if(element.id == id){
-                        html = '<option selected value="' + element.id + '">' + element.nombre + '</option>';
-                        $('#medico').append(html);
-                        true;
-                    } 
-                    else{
-                        html = '<option value="' + element.id + '">' + element.nombre + '</option>';
-                        $('#medico').append(html);
-                    }
-                });
-            } 
-        },
-        error: function (req, status, error){
-            var err = req.responseText;
-            console.log(err);
-            alert(err.Message);
-        }
-    });
-}
-
 function obtenerStatus(id){
     $.ajax({
         type: "GET",
@@ -694,7 +614,7 @@ function obtenerStatus(id){
         success: function (response){
             $("#status").empty();
             valor='';
-            html = '<option selected>Seleccionar Status</option>';
+            html = '<option selected>Seleccionar status</option>';
             if(id==0){
                 $("#status").append(html);
 
@@ -714,46 +634,6 @@ function obtenerStatus(id){
                     else{
                         html = '<option value="' + element.id + '">' + element.status + '</option>';
                         $('#status').append(html);
-                    }
-                });
-            } 
-        },
-        error: function (req, status, error){
-            var err = req.responseText;
-            console.log(err);
-            alert(err.Message);
-        }
-    });
-}
-
-function obtenerParentesco(id){
-    $.ajax({
-        type: "GET",
-        url: "/ajaxParentesco",
-        dataType: "json",
-        success: function (response){
-            $("#parentesco").empty();
-            valor='';
-            html = '<option selected>Seleccionar Parentesco</option>';
-            if(id==0){
-                $("#parentesco").append(html);
-
-                response.forEach((element) => {
-                    html = '<option value="' + element.id + '">' + element.parentesco + '</option>';
-                    $('#parentesco').append(html);
-                });
-            } 
-            
-            if(id > 0){
-                response.forEach((element) => {
-                    if(element.id == id){
-                        html = '<option selected value="' + element.id + '">' + element.parentesco + '</option>';
-                        $('#parentesco').append(html);
-                        true;
-                    } 
-                    else{
-                        html = '<option value="' + element.id + '">' + element.parentesco + '</option>';
-                        $('#parentesco').append(html);
                     }
                 });
             } 
@@ -790,6 +670,35 @@ function mostrarListado(){
 function mostrarFormulario(){
     $("#lista").addClass("d-none");
     $("#form").removeClass("d-none");
+    $("#titulo_tarifa").removeClass("d-none");
+    $("#tarifa").removeClass("d-none");
+    $("#observaciones_tarifa").removeClass("d-none");
+    $("#label_tarifa").removeClass("d-none");
+    $("#label_observaciones_tarifa").removeClass("d-none");
+    $("#divisor_tarifa").removeClass("d-none");
+    $("#label_selector").removeClass("d-none");
+    $("#representante_existente").removeClass("d-none");
+    $("#representante_nuevo").removeClass("d-none");
+    $("#label_nuevo").removeClass("d-none");
+    $("#label_existente").removeClass("d-none");
+    $(".form-check").removeClass("d-none");
+}
+
+function mostrarFormularioEditar(){
+    $("#lista").addClass("d-none");
+    $("#form").removeClass("d-none");
+    $("#titulo_tarifa").addClass("d-none");
+    $("#tarifa").addClass("d-none");
+    $("#observaciones_tarifa").addClass("d-none");
+    $("#label_tarifa").addClass("d-none");
+    $("#label_observaciones_tarifa").addClass("d-none");
+    $("#divisor_tarifa").addClass("d-none");
+    $("#label_selector").addClass("d-none");
+    $("#representante_existente").addClass("d-none");
+    $("#representante_nuevo").addClass("d-none");
+    $("#label_nuevo").addClass("d-none");
+    $("#label_existente").addClass("d-none");
+    $(".form-check").addClass("d-none");
 }
 
 function limpiarFormulario(){
@@ -813,9 +722,9 @@ function limpiarFormulario(){
     $("#diagnostico").val("");
     $("#condicion").val(obtenerMovilidad(0));
     $("#control_esfinteres").val();
-    $("#centro_medico").val(obtenerCentro(0));
-    $("#medico").val(obtenerMedico(0));
+    $("#centro_medico").val("");
+    $("#medico").val("");
     $("#observaciones").val("");
     $("#representante").val(obtenerRepresentante(0));
-    $("#parentesco").val(obtenerParentesco(0));
+    $("#parentesco").val("");
 }

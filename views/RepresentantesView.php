@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5 id="titulo-seccion">
                 <i class="fas fa-clipboard-list page-icon"></i>
-                Listado de Representantes
+                Listado de representantes
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Representante
+                <i class="fas fa-plus-circle me-2"></i>Nuevo representante
             </button>
         </div>
 
@@ -55,10 +55,10 @@
                         <!-- Fila de encabezado principal -->
                         <tr class="text-center">
                             <th colspan="3">Cedula</th>
-                            <th colspan="3">Nombres y Apellidos</th>
+                            <th colspan="3">Nombres y apellidos</th>
                             <th colspan="2">Telefono</th>  
-                            <th colspan="2">Fecha Nacimiento</th>
-                            <th colspan="2">Fecha de Pago</th>
+                            <th colspan="2">Fecha nacimiento</th>
+                            <th colspan="2">Fecha de pago</th>
                             <th colspan="2">Opciones</th>
                         </tr>
                     </thead>
@@ -71,7 +71,7 @@
     </section>
 
     <section id="form" class="d-none">
-        <h5>Formulario para registrar a un nuevo Representante</h5>
+        <h5>Formulario para registrar a un nuevo representante</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />
@@ -121,7 +121,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+                <label for="fecha" class="form-label">Fecha de nacimiento</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -143,7 +143,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fechaPago" class="form-label">Fecha de Pago (día)</label>
+                <label for="fechaPago" class="form-label">Fecha de pago (día)</label>
                 <input 
                     type="number" 
                     class="form-control" 
@@ -154,7 +154,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="familiar_alt" class="form-label">Nombre de Familiar alternativo (opcional)</label>
+                <label for="familiar_alt" class="form-label">Nombre de familiar alternativo (opcional)</label>
                 <input 
                     type="text" 
                     class="form-control" 
@@ -164,7 +164,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="telefono_alt" class="form-label">Teléfono de Familiar alternativo (opcional)</label>
+                <label for="telefono_alt" class="form-label">Teléfono de familiar alternativo (opcional)</label>
                 <input 
                     type="text" 
                     class="form-control" 
@@ -201,7 +201,7 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Ficha del Representante
+                            Ficha del representante
                         </h5>
 
                         <button type="button" 

@@ -83,7 +83,7 @@ $(document).ready( function() {
         }
 
         obtenerCargosPendientes(idResidente);
-        obtenerRepresentanteSegunResidente(idResidente);
+        obtenerRepresentanteSegunResidente(idRepresentante);
 
     });
 
@@ -166,7 +166,7 @@ function obtenerResidente(id){
         success: function (response){
             $("#residente").empty();
             valor='';
-            html = '<option selected>Elegir Residente</option>';
+            html = '<option selected>Elegir residente</option>';
             if(id==0){
                 $("#residente").append(html);
 
@@ -206,7 +206,7 @@ function obtenerRepresentante(id){
         success: function (response){
             $("#representante").empty();
             valor='';
-            html = '<option selected>Elegir Representante</option>';
+            html = '<option selected>Elegir representante</option>';
             if(id==0){
                 $("#representante").append(html);
 
@@ -246,7 +246,7 @@ function obtenerCargos(id){
         success: function (response){
             $("#cargo").empty();
             valor='';
-            html = '<option selected>Seleccionar Cargo</option>';
+            html = '<option selected>Seleccionar cargo</option>';
             if(id==0){
                 $("#cargo").append(html);
 
@@ -286,7 +286,7 @@ function obtenerMetodoPago(id){
         success: function (response){
             $("#metodo").empty();
             valor='';
-            html = '<option selected>Seleccionar Método de pago</option>';
+            html = '<option selected>Seleccionar método de pago</option>';
             if(id==0){
                 $("#metodo").append(html);
 
@@ -491,7 +491,7 @@ function obtenerRepresentanteSegunResidente(id){
         success: function (response){
             $("#representante").empty();
             valor='';
-            html = '<option selected>Elegir Representante</option>';
+            html = '<option selected>Elegir representante</option>';
             if(id==0){
                 $("#representante").append(html);
 

@@ -227,6 +227,7 @@ function obtenerFichaConsignaciones(id){
             $("#ficha_nombres").text(requerimiento.nombres_residente + " " + requerimiento.apellidos_residente);
 
             response.forEach((element) => {
+  
                 html += `
                 <tr class="text-center">
                     <td colspan = "3">${element.nombre_articulo}</td>
@@ -238,6 +239,7 @@ function obtenerFichaConsignaciones(id){
                     <td colspan = "2">${element.estado}</td>
                 </tr>
                 `
+                
             });
             $("#tbodyModalArticulos").html(html); //id del tbody de la tabla
 
@@ -284,9 +286,6 @@ function obtenerTlfRepresentante(id){
                         $(".contactar-whatsapp").attr("data-cedula", element.cedula);
                         $(".contactar-whatsapp").attr("data-nombres", element.nombres);
                         $(".contactar-whatsapp").attr("data-apellidos", element.apellidos);
-
-                        console.log(element.nombres);
-                        console.log(element.apellidos);
 
                         true;
                     } 

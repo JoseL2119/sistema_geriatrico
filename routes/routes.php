@@ -74,7 +74,7 @@ return[
     'ajaxConsignaciones' => 'controllers/ConsignacionesController.php',
     'consignacionesPendientes' => 'controllers/ConsignacionesPendientesController.php',
     'ajaxConsignacionesPendientes' => 'controllers/ConsignacionesPendientesController.php',
-    'DetallesConsignacionesPendientes' => 'controllers/DetallesConsignacionesPendientesController.php',
+    'detallesConsignacionesPendientes' => 'controllers/DetallesConsignacionesPendientesController.php',
     'ajaxDetallesConsignacionesPendientes' => 'controllers/DetallesConsignacionesPendientesController.php',
     
 ]

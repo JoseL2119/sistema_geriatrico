@@ -144,7 +144,7 @@ function obtenerResidente(id){
         success: function (response){
             $("#residente").empty();
             valor='';
-            html = '<option selected>Elegir Residente</option>';
+            html = '<option selected>Elegir residente</option>';
             if(id==0){
                 $("#residente").append(html);
 
@@ -184,7 +184,7 @@ function obtenerTarifas(id){
         success: function (response){
             $("#tarifa").empty();
             valor='';
-            html = '<option selected>Seleccionar Tarifa</option>';
+            html = '<option selected>Seleccionar tarifa</option>';
             if(id==0){
                 $("#tarifa").append(html);
 
@@ -224,7 +224,7 @@ function obtenerTarifasSegunResidente(id){
         success: function (response){
             $("#tarifa").empty();
             valor='';
-            html = '<option selected>Seleccionar Tarifa</option>';
+            html = '<option selected>Seleccionar tarifa</option>';
             if(id==0){
                 $("#tarifa").append(html);
 

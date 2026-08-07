@@ -10,6 +10,7 @@ class DetallesConsignacionesPendientesController{
         // GET, POST, PUT, DELETE
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         $id = $_GET['id'] ?? 0;  // Obtener ID si existe
+        
 
         switch($requestMethod){
             

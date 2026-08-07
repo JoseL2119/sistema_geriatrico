@@ -31,7 +31,7 @@
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Registrar Nuevo Pago
+                <i class="fas fa-plus-circle me-2"></i>Registrar nuevo pago
             </button>
         </div>
 
@@ -82,7 +82,7 @@
                 <label for="residente" class="form-label">Residente</label>
 
                 <select class="form-select" id="residente">
-                    <option selected>Seleccionar Residente</option>
+                    <option selected>Seleccionar residente</option>
                 </select>
             </div>
 
@@ -90,7 +90,7 @@
                 <label for="representante" class="form-label">Representante</label>
 
                 <select class="form-select" id="representante">
-                    <option selected>Seleccionar Representante</option>
+                    <option selected>Seleccionar representante</option>
                 </select>
             </div>
 
@@ -111,7 +111,7 @@
             </table>
 
             <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de Pago</label>
+                <label for="fecha" class="form-label">Fecha de pago</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -137,7 +137,7 @@
                 <label for="metodo" class="form-label">Método de pago</label>
 
                 <select class="form-select" id="metodo">
-                    <option selected>Seleccionar Método de pago</option>
+                    <option selected>Seleccionar método de pago</option>
                 </select>
             </div>
 

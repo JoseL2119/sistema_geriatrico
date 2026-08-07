@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5 id="titulo-seccion">
                 <i class="fas fa-clipboard-list page-icon"></i>
-                Historial de Consignaciones recibidas
+                Historial de consignaciones recibidas
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Registrar Nueva Consignación
+                <i class="fas fa-plus-circle me-2"></i>Registrar nueva consignación
             </button>
         </div>
 
@@ -90,7 +90,7 @@
                 <label for="residente" class="form-label">Residente</label>
 
                 <select class="form-select" id="residente">
-                    <option selected>Seleccionar Residente</option>
+                    <option selected>Seleccionar residente</option>
                 </select>
             </div>
 
@@ -98,7 +98,7 @@
                 <label for="representante" class="form-label">Representante que hace entrega</label>
 
                 <select class="form-select" id="representante">
-                    <option selected>Seleccionar Representante</option>
+                    <option selected>Seleccionar representante</option>
                 </select>
             </div>
 
@@ -143,7 +143,7 @@
 
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Ficha de Consignación del residente
+                            Ficha de consignación del residente
                         </h5>
 
                         <button type="button" 
@@ -157,7 +157,7 @@
 
                         <!-- DATOS PERSONALES -->
                         <h5 class="section-title border-bottom pb-2">
-                            Datos personales del Residente
+                            Datos personales del cesidente
                         </h5>
 
                         <div class="row mb-3">
@@ -168,12 +168,12 @@
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Nombres y Apellidos:</strong>
+                                <strong>Nombres y apellidos:</strong>
                                 <p id="ficha_nombres">-</p>
                             </div>
 
                             <div class="col-md-4">
-                                <strong>Representante Asociado:</strong>
+                                <strong>Representante asociado:</strong>
                                 <p id="ficha_representante">-</p>
                             </div>
 
@@ -187,7 +187,7 @@
                         <div class="row mb-3">
 
                             <div class="col-md-4">
-                                <strong>Fecha de Recepción:</strong>
+                                <strong>Fecha de recepción:</strong>
                                 <p id="ficha_fecha">-</p>
                             </div>
 
@@ -201,7 +201,7 @@
 
                         <!-- INGRESO -->
                         <h5 class="section-title border-bottom pb-2">
-                            Listado de Artículos Consignados
+                            Listado de artículos consignados
                         </h5>
 
                         <table class="table table-bordered m-0" style="font-size: 0.88rem; width: 100%; min-width: 100%;">

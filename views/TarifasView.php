@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5 id="titulo-seccion">
                 <i class="fas fa-clipboard-list page-icon"></i>
-                Listado de Tarifas establecidas para cada Residente
+                Listado de tarifas establecidas para cada residente
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Tarifa
+                <i class="fas fa-plus-circle me-2"></i>Nueva tarifa
             </button>
         </div>
 
@@ -56,9 +56,9 @@
                         <tr class="text-center">
                             <th colspan="1">#</th>
                             <th colspan="3">Residente</th>
-                            <th colspan="3">Tarifa Establecida (USD)</th>  
-                            <th colspan="2">Fecha Inicio</th>
-                            <th colspan="2">Fecha Fin</th>
+                            <th colspan="3">Tarifa establecida (USD)</th>  
+                            <th colspan="2">Fecha inicio</th>
+                            <th colspan="2">Fecha fin</th>
                             <th colspan="2">Observaciones</th>
                             <th colspan="2">Opciones</th>
                         </tr>
@@ -72,7 +72,7 @@
     </section>
 
     <section id="form" class="d-none">
-        <h5>Formulario para registrar una nueva Tarifa</h5>
+        <h5>Formulario para registrar una nueva tarifa</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />
@@ -81,7 +81,7 @@
                 <label for="residente" class="form-label">Residente</label>
 
                 <select class="form-select" id="residente">
-                    <option selected>Seleccionar Residente</option>
+                    <option selected>Seleccionar residente</option>
                 </select>
             </div>
 
@@ -98,7 +98,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de Emisión</label>
+                <label for="fecha" class="form-label">Fecha de emisión</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -109,7 +109,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha_fin" class="form-label">Fecha de Fin</label>
+                <label for="fecha_fin" class="form-label">Fecha de fin</label>
                 <input 
                     type="date" 
                     class="form-control" 

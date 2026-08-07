@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5>
                 <i class="fas fa-users page-icon"></i>
-                Listado de Métodos de pago
+                Listado de métodos de pago
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Método de Pago
+                <i class="fas fa-plus-circle me-2"></i>Nuevo método de pago
             </button>
         </div>
 
@@ -57,7 +57,7 @@
 
 
     <section id="form" class="d-none">
-        <h5>Formulario de Registro de Métodos de pago</h5>
+        <h5>Formulario de registro de métodos de pago</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />

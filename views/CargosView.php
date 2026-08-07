@@ -27,11 +27,11 @@
         <div class="page-header">
             <h5 id="titulo-seccion">
                 <i class="fas fa-clipboard-list page-icon"></i>
-                Listado de Cargos generados para cada residente
+                Listado de cargos generados para cada residente
             </h5>
 
             <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo Cargo
+                <i class="fas fa-plus-circle me-2"></i>Nuevo cargo
             </button>
         </div>
 
@@ -56,10 +56,10 @@
                         <tr class="text-center">
                             <th colspan="1">#</th>
                             <th colspan="2">Residente</th>
-                            <th colspan="2">Monto a Pagar</th>  
+                            <th colspan="2">Monto a pagar</th>  
                             <th colspan="2">Periodo</th>
-                            <th colspan="2">Fecha Emisión</th>
-                            <th colspan="2">Fecha Vencimiento</th>
+                            <th colspan="2">Fecha emisión</th>
+                            <th colspan="2">Fecha vencimiento</th>
                             <th colspan="2">Observaciones</th>
                             <th colspan="2">Opciones</th>
                         </tr>
@@ -73,7 +73,7 @@
     </section>
 
     <section id="form" class="d-none">
-        <h5>Formulario para generar un nuevo Cargo</h5>
+        <h5>Formulario para generar un nuevo cargo</h5>
         <hr />
         <form id="formulario">
             <input type="hidden" id="id" />
@@ -82,7 +82,7 @@
                 <label for="residente" class="form-label">Residente</label>
 
                 <select class="form-select" id="residente">
-                    <option selected>Seleccionar Residente</option>
+                    <option selected>Seleccionar residente</option>
                 </select>
             </div>
 
@@ -90,7 +90,7 @@
                 <label for="tarifa" class="form-label">Tarifa</label>
 
                 <select class="form-select" id="tarifa">
-                    <option selected>Seleccionar Tarifa</option>
+                    <option selected>Seleccionar tarifa</option>
                 </select>
             </div>
 
@@ -117,7 +117,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de Emisión</label>
+                <label for="fecha" class="form-label">Fecha de emisión</label>
                 <input 
                     type="date" 
                     class="form-control" 
@@ -128,7 +128,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="fecha_fin" class="form-label">Fecha de Vencimiento</label>
+                <label for="fecha_fin" class="form-label">Fecha de vencimiento</label>
                 <input 
                     type="date" 
                     class="form-control" 

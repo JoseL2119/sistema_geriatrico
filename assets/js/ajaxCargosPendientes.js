@@ -161,7 +161,7 @@ function listadoCargosPendientes(){
             });
 
             if(cont === 0){
-                html = '<tr><td colspan="5" class="text-center text-muted">No hay cargos pendientes por pagar</td></tr>';
+                html = '<tr><td colspan="6" class="text-center text-muted">No hay cargos pendientes por pagar</td></tr>';
             }
 
             else{
