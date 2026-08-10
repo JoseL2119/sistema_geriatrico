@@ -78,6 +78,7 @@ $(document).ready( function() {
         const fecha = $("#fecha").val();
         const fecha_ingreso = $("#fecha_ingreso").val();
         const fecha_egreso = $("#fecha_egreso").val();
+        const genero = $("#genero").val();
         const peso = $("#peso").val();
         const altura = $("#altura").val();
         const status = $("#status").val();
@@ -107,6 +108,7 @@ $(document).ready( function() {
             fecha_nacimiento: fecha,
             fecha_ingreso: fecha_ingreso,
             fecha_egreso: fecha_egreso === "" ? null : fecha_egreso,
+            genero: genero,
             peso: peso,
             altura: altura,
             status: status,
@@ -268,6 +270,12 @@ function obtenerFichaResidente(id){
                     ? formatearFecha(residente.fecha_egreso) 
                     : "Actualmente residente"
             );
+
+            if(residente.genero == 2){
+                $("#ficha_genero").text("Femenino");
+            }else{
+                $("#ficha_genero").text("Masculino");
+            }
 
             // Datos físicos
             $("#ficha_peso").text(residente.peso + " kg");
@@ -500,6 +508,7 @@ function obtenerResidente(id){
             $("#fecha").val(response.fecha_nacimiento);
             $("#fecha_ingreso").val(response.fecha_ingreso);
             $("#fecha_egreso").val(response.fecha_egreso);
+            $("#genero").val(response.genero);
             $("#peso").val(response.peso);
             $("#altura").val(response.altura);
             $("#status").val(obtenerStatus(response.status));
@@ -709,6 +718,7 @@ function limpiarFormulario(){
     $("#fecha").val("");
     $("#fecha_ingreso").val("");
     $("#fecha_egreso").val("");
+    $("#genero").val();
     $("#peso").val(0);
     $("#altura").val(0);
     $("#status").val(obtenerStatus(0));

@@ -142,6 +142,15 @@
             </div>
 
             <div class="mb-3">
+                <label for="genero" class="form-label">Género</label>
+                <select class="form-select" id="genero">
+                    <option selected>Seleccionar opción</option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="peso" class="form-label">Peso (kg)</label>
                 <input 
                     type="number" 
@@ -581,6 +590,11 @@
                             <div class="col-md-4">
                                 <strong>Apellidos:</strong>
                                 <p id="ficha_apellidos">-</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <strong>Género:</strong>
+                                <p id="ficha_genero">-</p>
                             </div>
 
                             <div class="col-md-4">
