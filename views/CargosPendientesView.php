@@ -57,7 +57,7 @@
                             <th style="width: 16%; min-width: 100px;">Residente</th>
                             <th style="width: 16%; min-width: 100px;">Periodo</th>
                             <th style="width: 16%; min-width: 100px;">Monto (USD)</th>
-                            <th style="width: 16%; min-width: 100px;">Total tagado (USD)</th>
+                            <th style="width: 16%; min-width: 100px;">Total pagado (USD)</th>
                             <th style="width: 16%; min-width: 100px;">Saldo (USD)</th>
                             <th style="width: 16%; min-width: 100px;">Opciones</th>
                         </tr>
