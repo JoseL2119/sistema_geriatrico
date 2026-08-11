@@ -43,8 +43,9 @@
                 <label for="fecha_fin">Fecha Final:</label>
                 <input type="date" class="form-control form-control-sm" id="fecha_fin">
             </div>
-        </div>
+        </div> -->
 
+        <!--
         <button id="pdf-link" class="btn btn-pdf btn-app mb-3">
             <i class="fas fa-file-pdf me-2"></i>Generar PDF
         </button> -->
@@ -77,7 +78,7 @@
     <script src="../assets/js/ajaxCargosPendientes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
 
-    <script>
+    <!-- <script>
     // Actualiza el enlace con los filtros actuales
     document.getElementById('pdf-link').addEventListener('click', function(e) {
         e.preventDefault();
@@ -97,6 +98,6 @@
         
         window.open(url, '_blank');
     });
-    </script>
+    </script> -->
   </body>
 </html>

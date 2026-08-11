@@ -65,6 +65,7 @@ a {
     box-shadow: var(--shadow-sm);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .navbar-app .navbar-brand img {
@@ -133,6 +134,13 @@ a {
 .page-header .page-icon {
     color: var(--primary-600);
     margin-right: 0.5rem;
+}
+
+.page-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .page-divider {

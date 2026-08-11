@@ -16,6 +16,49 @@ class Landing {
                     FROM residentes
                 ) AS total_residentes,
 
+                -- RESIDENTES SIN CONTENCIÓN FAMILIAR
+                (
+                    SELECT COUNT(*)
+                    FROM residentes
+                    WHERE contencion_f = 0
+                ) AS total_residentes_sin_contencion,
+
+                -- RESIDENTES CON DISCAPACIDAD
+                (
+                    SELECT COUNT(*)
+                    FROM residentes
+                    WHERE condicion_mov != 2
+                ) AS total_residentes_con_discapacidad,
+
+                -- RESIDENTES QUE USAN PAÑAL
+                (
+                    SELECT COUNT(*)
+                    FROM residentes
+                    WHERE control_esfinteres = 0
+                ) AS total_residentes_pañales,
+
+                -- RESIDENTES CON CONVENIO IVSS
+                (
+                    SELECT COUNT(*)
+                    FROM residentes
+                    WHERE convenio_ivss = 1
+                ) AS total_residentes_ivss,
+
+                -- RESIDENTES QUE SON CASO PRIVADO
+                (
+                    SELECT COUNT(*)
+                    FROM residentes
+                    WHERE caso_privado = 1
+                ) AS total_residentes_privados,
+
+                -- RESIDENTES QUE SON PACIENTES PSIQUIÁTRICOS
+                (
+                    SELECT COUNT(*)
+                    FROM residentes
+                    WHERE psiquiatrico = 1
+                ) AS total_residentes_psiquiatricos,
+
+
                 -- REPRESENTANTES
                 (
                     SELECT COUNT(*)

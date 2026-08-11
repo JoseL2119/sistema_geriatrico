@@ -5,31 +5,28 @@ require_once "./models/Pagos.php";
 
 class PagosController{
 
-    static public function procesar(){
+    static public function procesar($params = []){
         // productos
         // productos/
         // productos/!
 
         // Devuelve un array de elementos separándolos por "/"
-        $requestURI = explode("/", $_SERVER['REQUEST_URI']);
-        // Elimina los valores vacios
-        $requestURI = array_filter($requestURI);
-
-        if(count($requestURI) == 1){
-            $id = 0;
-        }
-        else{
-            $id = $requestURI[2] ?? 0;
-        }
-
-        // GET, POST, PUT, DELETE
         $requestMethod = $_SERVER['REQUEST_METHOD'];
+        $id = $_GET['id'] ?? 0;  // Obtener ID si existe
+
         switch($requestMethod){
             
             case 'GET':
                 if($id==0){
+
+                    $filtros = $_GET;
                     // $response = ExcavacionCdPiar::getAll();
-                    $response = Pagos::getAll();
+                    if(empty($filtros)){
+                        $response = Pagos::getAll();
+                    }
+                    else{
+                        $response = Pagos::getFiltrados($params);
+                    }
                     echo json_encode($response);
                 }
                 else{

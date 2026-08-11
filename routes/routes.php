@@ -31,6 +31,8 @@ return[
     'ajaxOperatividad' => 'controllers/OperatividadController.php',
     'alimentacionTurno' => 'controllers/AlimentacionTurnoController.php',
     'ajaxAlimentacionTurno' => 'controllers/AlimentacionTurnoController.php',
+    'reporteDashboard' => 'controllers/LandingController.php',
+    'reporteResidentes' => 'controllers/ResidentesController.php',
     'reporteAlimentacion' => 'controllers/AlimentacionController.php',
     'reporteOperatividadMaquinaria' => 'controllers/AlimentacionController.php',
     'reporteIncidencias' => 'controllers/AlimentacionController.php',

@@ -18,6 +18,22 @@ $(document).ready( function() {
         mostrarListado();
     });
 
+    $(document).on("change", "#fecha_inicio_filtro, #fecha_fin_filtro", function (e){
+        const fecha_inicio_filtro = $("#fecha_inicio_filtro").val();
+        const fecha_fin_filtro = $("#fecha_fin_filtro").val();
+        let filtros = {};
+        
+        if(fecha_inicio_filtro && fecha_inicio_filtro !== ""){
+            filtros.fecha_inicio_filtro = fecha_inicio_filtro;
+        }
+
+        if(fecha_fin_filtro && fecha_fin_filtro !== ""){
+            filtros.fecha_fin_filtro = fecha_fin_filtro;
+        }
+
+        filtrar(filtros);
+    });
+
     // Cuando se haga submit en el formulario...
     $("#formulario").submit( function(e){
         e.preventDefault();
@@ -149,6 +165,61 @@ function listadoPagos(){
                 </tr>
                 `
             });
+            $("#tbody").html(html); //id del tbody de la tabla
+        },
+        error: function (req, status, error){
+            const err = req.responseText;
+            console.log(err);
+        }
+    })
+}
+
+function filtrar(filtros){
+    $.ajax({
+        type: "GET", 
+        url: "/ajaxPagos?" + $.param(filtros),
+        dataType: "json",
+        success: function(response) {
+            console.log("Respuesta recibida:", response); // Inspecciona la respuesta
+
+            if (!response) {
+                console.error("La respuesta está vacía o es null");
+                $("#tbody").html('<tr><td colspan="18">No hay datos disponibles</td></tr>');
+                return;
+            }
+
+            if (!Array.isArray(response)) {
+                console.error("La respuesta no es un array:", typeof response);
+                return;
+            }
+
+            html = '';
+            count = 0;
+
+            response.forEach((element) => {
+
+                count ++;
+
+                html += `
+                <tr class="text-center">
+                    <td colspan = "2">${formatearFecha(element.fecha)}</td>
+                    <td colspan = "2">${element.nombres_residente} ${element.apellidos_residente}</td>
+                    <td colspan = "2">${element.nombres_representante} ${element.apellidos_representante}</td>
+                    <td colspan = "2">${element.monto}</td>
+                    <td colspan = "2">${element.metodo_pago}</td>
+                    <td colspan = "2">${element.referencia}</td>
+                    <td colspan = "3">${element.observaciones ? element.observaciones : "Sin comentarios"}</td>
+                    <td colspan = "2">
+                        <a class="btn btn-danger" id="eliminar" value="${element.id}">Eliminar</a>
+                    </td>
+                </tr>
+                `
+            }); 
+
+            if (count === 0) {
+                html = '<tr><td colspan="17" class="text-center text-muted">No hay registros para los filtros seleccionados</td></tr>';
+            } 
+
             $("#tbody").html(html); //id del tbody de la tabla
         },
         error: function (req, status, error){

@@ -113,12 +113,16 @@ class Pagos {
             INNER JOIN metodo_pago m ON p.metodo_pago = m.id
             WHERE 1=1";
 
-        if(!empty($filtros['fecha'])){
-            $sql .= " AND fecha = ?";
-            $params[] = $filtros['fecha'];
+        if(!empty($filtros['fecha_inicio_filtro'])){
+            $sql .= " AND fecha >= ?";
+            $params[] = $filtros['fecha_inicio_filtro'];
+        }
+        if(!empty($filtros['fecha_fin_filtro'])){
+            $sql .= " AND fecha <= ?";
+            $params[] = $filtros['fecha_fin_filtro'];
         }
 
-        $sql .= " ORDER BY p.id ASC";
+        $sql .= " ORDER BY p.fecha DESC";
 
         $stmt = ConnectionFerro::getConnection()->prepare($sql);
 

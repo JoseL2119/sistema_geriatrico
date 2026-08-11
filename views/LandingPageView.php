@@ -19,7 +19,6 @@
 
     <style>
         .dashboard-container {
-            padding-top: 30px;
             padding-bottom: 40px;
         }
     </style>
@@ -48,9 +47,13 @@
                 Hogar Clínica Madre Santa Teresa
             </p>
 
-            <p class="mt-2 mb-0">
+            <p class="mt-2 mb-3">
                 Resumen general de la información del geriátrico
             </p>
+
+            <button id="pdf-link" class="btn btn-pdf btn-app">
+                <i class="fas fa-file-pdf me-2"></i>Descargar datos
+            </button>
 
         </section>
 
@@ -63,7 +66,6 @@
         <h4 class="dashboard-section-title">
             Resumen general
         </h4>
-
 
         <div class="row g-4">
 
@@ -490,7 +492,7 @@
     <footer class="app-footer text-white text-center py-3">
 
         <p class="mb-0">
-            &copy; 2025 CVM - Todos los derechos reservados.
+            &copy; 2026 Hogar Clínica Madre Santa Teresa - Todos los derechos reservados.
         </p>
 
     </footer>
@@ -506,6 +508,18 @@
     <script src="../assets/js/ajaxLanding.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+    // Actualiza el enlace con los filtros actuales
+    document.getElementById('pdf-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Construye la URL con parámetros
+        let url = '/views/reportes/ReporteDashboard.php';
+        
+        window.open(url, '_blank');
+    });
+    </script>
 
 </body>
 

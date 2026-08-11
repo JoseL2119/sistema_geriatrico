@@ -208,7 +208,12 @@ if(array_key_exists($baseURI, $routes)){
 
         case 'ajaxPagos':
             require $routes[$baseURI];
-            PagosController::procesar();
+
+            if(count($uriParts) > 1 && is_numeric($uriParts[1])){
+                $_GET['id'] = $uriParts[1];
+            }
+
+            PagosController::procesar($queryParams);
             break;
 
         case 'cargosPendientes':
@@ -217,7 +222,12 @@ if(array_key_exists($baseURI, $routes)){
 
         case 'ajaxCargosPendientes':
             require $routes[$baseURI];
-            CargosPendientesController::procesar();
+
+            if(count($uriParts) > 1 && is_numeric($uriParts[1])){
+                $_GET['id'] = $uriParts[1];
+            }
+
+            CargosPendientesController::procesar($queryParams);
             break;
 
         case 'requerimientos':
@@ -341,6 +351,14 @@ if(array_key_exists($baseURI, $routes)){
         case 'ajaxAlimentacionTurno':
             require $routes[$baseURI];
             AlimentacionTurnoController::procesar();
+            break;
+
+        case 'reporteDashboard':
+            include './views/reportes/ReporteDashboard.php';
+            break;
+
+        case 'reporteResidentes':
+            include './views/reportes/ReporteResidentes.php';
             break;
 
         case 'reporteAlimentacion':

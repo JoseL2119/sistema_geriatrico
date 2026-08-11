@@ -9,7 +9,8 @@ class Residentes {
         $table = self::$tableName;
         // $sql = "SELECT * FROM $table ORDER BY fecha";
         $sql = "SELECT r.*,
-            re.nombres AS representante, re.telefono AS telefono, mo.condicion AS c_movilidad, s.status AS status_r
+            re.nombres AS representante, re.apellidos AS apellidos_representante, re.cedula AS cedula_representante, re.telefono AS telefono, re.domicilio AS domicilio, re.fecha_pago AS fecha_pago,
+            mo.condicion AS c_movilidad, s.status AS status_r
             FROM residentes r
             INNER JOIN representantes re ON r.id_representante = re.id
             INNER JOIN movilidad mo ON r.condicion_mov = mo.id
@@ -62,9 +63,13 @@ class Residentes {
             INNER JOIN status_residente s ON r.status = s.id
             WHERE 1=1";
 
-        if(!empty($filtros['fecha'])){
-            $sql .= " AND fecha = ?";
-            $params[] = $filtros['fecha'];
+        if(!empty($filtros['fecha_inicio_filtro'])){
+            $sql .= " AND fecha_ingreso >= ?";
+            $params[] = $filtros['fecha_inicio_filtro'];
+        }
+        if(!empty($filtros['fecha_fin_filtro'])){
+            $sql .= " AND fecha_ingreso <= ?";
+            $params[] = $filtros['fecha_fin_filtro'];
         }
 
         $sql .= " ORDER BY r.cedula ASC";

@@ -17,11 +17,19 @@ $(document).ready( function() {
         mostrarListado();
     });
 
-    $(document).on("change", "#filtro_fecha", function (e){
-        const fecha_filtro = $("#filtro_fecha").val();
-        const filtros = {
-            fecha: fecha_filtro
+    $(document).on("change", "#fecha_inicio_filtro, #fecha_fin_filtro", function (e){
+        const fecha_inicio_filtro = $("#fecha_inicio_filtro").val();
+        const fecha_fin_filtro = $("#fecha_fin_filtro").val();
+        let filtros = {};
+        
+        if(fecha_inicio_filtro && fecha_inicio_filtro !== ""){
+            filtros.fecha_inicio_filtro = fecha_inicio_filtro;
         }
+
+        if(fecha_fin_filtro && fecha_fin_filtro !== ""){
+            filtros.fecha_fin_filtro = fecha_fin_filtro;
+        }
+
         filtrar(filtros);
     });
 
@@ -245,6 +253,61 @@ function listadoResidentes(){
     })
 }
 
+function filtrar(filtros){
+    $.ajax({
+        type: "GET", 
+        url: "/ajaxResidentes?" + $.param(filtros),
+        dataType: "json",
+        success: function(response) {
+            console.log("Respuesta recibida:", response); // Inspecciona la respuesta
+
+            if (!response) {
+                console.error("La respuesta está vacía o es null");
+                $("#tbody").html('<tr><td colspan="18">No hay datos disponibles</td></tr>');
+                return;
+            }
+
+            if (!Array.isArray(response)) {
+                console.error("La respuesta no es un array:", typeof response);
+                return;
+            }
+
+            html = '';
+            count = 0;
+
+            response.forEach((element) => {
+
+                count ++;
+
+                html += `
+                <tr class="text-center">
+                    <td colspan = "3">${element.cedula}</td>
+                    <td colspan = "3">${element.nombres} ${element.apellidos}</td>
+                    <td colspan = "2">${formatearFecha(element.fecha_nacimiento)}</td>
+                    <td colspan = "2">${formatearFecha(element.fecha_ingreso)}</td>
+                    <td colspan = "2">${element.status_r}</td>
+                    <td colspan = "2">
+                        <a class="btn btn-info" id="verFicha" value="${element.id}">Ver ficha</a>
+                        <a class="btn btn-success" id="editar" value="${element.id}">Editar</a>
+                        <a class="btn btn-danger" id="eliminar" value="${element.id}">Eliminar</a>
+                    </td>
+                </tr>
+                `
+            }); 
+
+            if (count === 0) {
+                html = '<tr><td colspan="14" class="text-center text-muted">No hay registros para los filtros seleccionados</td></tr>';
+            } 
+
+            $("#tbody").html(html); //id del tbody de la tabla
+        },
+        error: function (req, status, error){
+            const err = req.responseText;
+            console.log(err);
+        }
+    })
+}
+
 function obtenerFichaResidente(id){
     $.ajax({
         type: "GET",
@@ -358,108 +421,6 @@ function obtenerFichaResidente(id){
         }
     });
 }
-
-/*
-function filtrar(filtros){
-    const hoy = new Date();
-    const horaActual = hoy.toTimeString().substr(0, 5);
-    const fechaActual = hoy.toISOString().split('T')[0]; // Formato: "2023-11-15"
-    const turno = determinarTurno(horaActual);
-
-    const fechaReferencia = obtenerFechaSegunTurno(fechaActual, horaActual);
-    $("#titulo-seccion").html(`Reportes del Control de Alimentación - Turno ${turno} <br>${formatearFecha(fechaReferencia)} - ${horaActual}`);
-
-    $.ajax({
-        type: "GET", 
-        url: "/ajaxResidentes?" + $.param(filtros),
-        dataType: "json",
-        success: function(response) {
-            console.log("Respuesta recibida:", response); // Inspecciona la respuesta
-
-            if (!response) {
-                console.error("La respuesta está vacía o es null");
-                $("#tbody").html('<tr><td colspan="18">No hay datos disponibles</td></tr>');
-                return;
-            }
-
-            if (!Array.isArray(response)) {
-                console.error("La respuesta no es un array:", typeof response);
-                return;
-            }
-
-            html = '';
-            let totalOp1 = 0, totalOp2 = 0, totalOp3 = 0;
-            let totalParada1 = 0, totalParada2 = 0, totalParada3 = 0, totalParadaCT5 = 0;
-            let totalHumedad = 0, promedioHumedad = 0.00;
-            let count = 0;
-            response.forEach((element) => {
-                
-                fecha = element.fecha.substr(8, 2) + "/" + element.fecha.substr(5, 2) + "/" + element.fecha.substr(0, 4);
-            
-                totalOp1 += parseFloat(element.operatividad_molino_1) || 0;
-                totalOp2 += parseFloat(element.operatividad_molino_2) || 0;
-                totalOp3 += parseFloat(element.operatividad_molino_3) || 0;
-                totalParada1 += parseFloat(element.parada_molino_1) || 0;
-                totalParada2 += parseFloat(element.parada_molino_2) || 0;
-                totalParada3 += parseFloat(element.parada_molino_3) || 0;
-                totalHumedad += parseFloat(element.porcentaje_humedad) || 0;
-                totalParadaCT5 += parseFloat(element.pad_ct_5)
-                count ++;
-
-                html += `
-                <tr>
-                    <td>${element.hora}</td>
-                    <td>${element.pad_ct_5}</td>
-                    <td>${element.operatividad_molino_1} min</td>
-                    <td>${element.operatividad_molino_2} min</td>
-                    <td>${element.operatividad_molino_3} min</td>
-                    <td>${element.parada_molino_1} min</td>
-                    <td>${element.parada_molino_2} min</td>
-                    <td>${element.parada_molino_3} min</td>
-                    <td>${element.porcentaje_humedad}%</td>
-                    <td>${element.codigo_arena}</td>
-                    <td>${element.numero_tolva}</td>
-                    <td>${element.observacion}</td>
-                    <td>${element.supervisor}</td>
-                    <td>
-                        <a class="btn btn-success" id="editar" value="${element.id}">Editar</a>
-                        <a class="btn btn-danger" id="eliminar" value="${element.id}">Eliminar</a>
-                    </td>
-                </tr>
-                `
-            
-
-            }); 
-
-            if (count === 0) {
-                html = '<tr><td colspan="14" class="text-center text-muted">No hay registros para el día de hoy</td></tr>';
-            } 
-
-            else {
-                html += `
-                <tr class="fw-bold">
-                    <td>Totales</td>
-                    <td>${totalParadaCT5} min</td>
-                    <td>${totalOp1} min</td>
-                    <td>${totalOp2} min</td>
-                    <td>${totalOp3} min</td>
-                    <td>${totalParada1} min</td>
-                    <td>${totalParada2} min</td>
-                    <td>${totalParada3} min</td>
-                    <td>${(totalHumedad/count).toFixed(2)}%</td>
-                    <td colspan="5"></td>
-                </tr>`;
-            }
-
-            $("#tbody").html(html); //id del tbody de la tabla
-        },
-        error: function (req, status, error){
-            const err = req.responseText;
-            console.log(err);
-        }
-    })
-}
-*/
 
 function guardarResidente(params){
     $.ajax({

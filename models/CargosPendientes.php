@@ -30,10 +30,13 @@ class CargosPendientes {
         $params = [];
         $sql = "SELECT * FROM $table";
 
-        if(!empty($filtros['fecha_inicio']) && !empty($filtros['fecha_fin'])){
-            $sql .= " WHERE fecha BETWEEN ? AND ?";
-            $params[] = $filtros['fecha_inicio'];
-            $params[] = $filtros['fecha_fin'];
+        if(!empty($filtros['fecha_inicio_filtro'])){
+            $sql .= " AND fecha >= ?";
+            $params[] = $filtros['fecha_inicio_filtro'];
+        }
+        if(!empty($filtros['fecha_fin_filtro'])){
+            $sql .= " AND fecha <= ?";
+            $params[] = $filtros['fecha_fin_filtro'];
         }
 
         $stmt = ConnectionFerro::getConnection()->prepare($sql);

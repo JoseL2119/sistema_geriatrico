@@ -37,13 +37,19 @@
 
         <hr class="page-divider">
 
-        <!-- <div class="filter-bar">
+        <div class="filter-bar">
             <div class="filter-field">
-                <label for="filtro_fecha">Filtrar por fecha</label>
-                <input type="date" class="form-control form-control-sm" name="" id="filtro_fecha">
+                <label for="fecha_inicio_filtro">Fecha Inicial:</label>
+                <input type="date" class="form-control form-control-sm" id="fecha_inicio_filtro">
+            </div>
+
+            <div class="filter-field">
+                <label for="fecha_fin_filtro">Fecha Final:</label>
+                <input type="date" class="form-control form-control-sm" id="fecha_fin_filtro">
             </div>
         </div>
 
+        <!--
         <button id="pdf-link" class="btn btn-pdf btn-app mb-3">
             <i class="fas fa-file-pdf me-2"></i>Generar PDF
         </button> -->

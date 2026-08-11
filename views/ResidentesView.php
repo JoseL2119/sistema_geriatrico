@@ -30,23 +30,30 @@
                 Listado de residentes
             </h5>
 
-            <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
-                <i class="fas fa-plus-circle me-2"></i>Nuevo residente
-            </button>
+            <div class="page-header-actions">
+                <button id="pdf-link" class="btn btn-pdf btn-app">
+                    <i class="fas fa-file-pdf me-2"></i>Descargar datos
+                </button>
+
+                <button type="button" class="btn btn-primary btn-app shadow-sm" id="nuevo">
+                    <i class="fas fa-plus-circle me-2"></i>Nuevo residente
+                </button>
+            </div>
         </div>
 
         <hr class="page-divider">
 
-        <!-- <div class="filter-bar">
+        <div class="filter-bar">
             <div class="filter-field">
-                <label for="filtro_fecha">Filtrar por fecha</label>
-                <input type="date" class="form-control form-control-sm" name="" id="filtro_fecha">
+                <label for="fecha_inicio_filtro">Fecha Inicial:</label>
+                <input type="date" class="form-control form-control-sm" id="fecha_inicio_filtro">
+            </div>
+
+            <div class="filter-field">
+                <label for="fecha_fin_filtro">Fecha Final:</label>
+                <input type="date" class="form-control form-control-sm" id="fecha_fin_filtro">
             </div>
         </div>
-
-        <button id="pdf-link" class="btn btn-pdf btn-app mb-3">
-            <i class="fas fa-file-pdf me-2"></i>Generar PDF
-        </button> -->
 
         <div class="container-fluid px-0">  <!-- Contenedor fluido sin padding horizontal -->
             <div class="table-responsive rounded-3 shadow-sm" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
@@ -780,6 +787,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../assets/js/ajaxResidentes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+    // Actualiza el enlace con los filtros actuales
+    document.getElementById('pdf-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Construye la URL con parámetros
+        let url = '/views/reportes/ReporteResidentes.php';
+        
+        window.open(url, '_blank');
+    });
+    </script>
 
   </body>
 </html>
